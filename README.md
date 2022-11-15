@@ -33,37 +33,37 @@ ___
 
 <h4>installation</h4>
 ````
-      git clone https://github.com/Ariful491/sws.git
-  ````
+git clone https://github.com/Ariful491/sws.git
 ````
-  
-     composer install
-  ````
+````
+composer install
+````
+````
+cp .env.example .env
+````
 
-  ````
-      cp .env.example .env
-````
 <p>
 Open your .env file and change the database name (DB_DATABASE) to whatever you have, username (DB_USERNAME) and password (DB_PASSWORD) field correspond to your configuration.
 </p>
- 
-        php artisan key:generate
-````
-    npm install
-````
-````
-    npm run dev
-````
-````
-   php artisan migrate
-````
-````
-   php artisan serve
-````
-````
-   php artisan db:seed
-````    
 
+````
+php artisan key:generate
+````
+````
+npm install
+````
+````
+npm run dev
+````
+````
+php artisan migrate
+````
+````
+php artisan serve
+````
+````
+php artisan db:seed 
+````
 <h4>After seeding</h4>
 
 you will get all default Data.
