@@ -32,12 +32,18 @@ ___
 
 
 <h4>installation</h4>
+
+
 ````
 git clone https://github.com/Ariful491/sws.git
 ````
+
+
 ````
 composer install
 ````
+
+
 ````
 cp .env.example .env
 ````
