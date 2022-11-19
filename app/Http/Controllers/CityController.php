@@ -2,19 +2,43 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CityRequest;
 use App\Models\City;
+use App\Repositories\Interfaces\CityRepositoryInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class CityController extends Controller
 {
+
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @var CityRepositoryInterface
      */
-    public function index()
+    protected CityRepositoryInterface $cityRepo;
+
+    /**
+     * ProductController constructor.
+     * @param CityRepositoryInterface $cityRepo
+     */
+    public function __construct(CityRepositoryInterface $cityRepo)
     {
-        //
+
+        $this->cityRepo = $cityRepo;
+    }
+
+    /**
+     * @param Request $request
+     * @return Response
+     */
+
+    public function index(Request $request): Response
+    {
+        $data = $request->all();
+        $data =  $this->cityRepo->getCity($data);
+        return Inertia::render('City/Index')
+            ->with('items',$data);;
     }
 
     /**
@@ -28,14 +52,14 @@ class CityController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function store(Request $request)
+    public function store(CityRequest $request)
     {
-        //
+        $data = $request->all();
+        $data =  $this->cityRepo->store($data);
+        return response()->json($data);
     }
 
     /**
