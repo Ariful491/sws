@@ -87,8 +87,10 @@ php artisan queue:work
 <h4>After seeding</h4>
 
 you will get all default Data 
-email:admin@gmail
-pass:12345678
+
+<p>email:admin@gmail</p>
+<p>pass:12345678</p>
+N.B If find any problem please inform me i will solve.
 
 <h4>Short demo screen short :- <small><i> Will come after completed</i></small> <h4>
 ___
