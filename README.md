@@ -13,8 +13,7 @@ ___
     <li>Create a filter mechanism so that I can filter the data based on state OR/AND county</li>
     <li>Create a view mechanism to display any city information in a mo</li>
 </ul>
-<h6>For Public Page <small> <i> Those information you find on City page after login </i> </small> :- <small><i> (SPA) use Vue js or react or jquery whatever you like! (Vue js preferred!).
-
+<h6>For Public Page :- <small><i> (SPA) use Vue js or react or jquery whatever you like! (Vue js preferred!).
 </i></small></h6>
  <ul>
     <li>Create a city search page where I can search cities by name OR/AND state OR/AND county.</li>
@@ -30,20 +29,19 @@ ___
     <li>Inertia js</li>
     <li>Tailwind Css</li>    
 </ul>
-
-
-<h4>installation</h4>
 <ul>
-  <li>
+   <li>
      NPM version : 8.3.1
    </li>
-  <li>
-     NODE version : 16.14.0
-  </li>
-<li>
-   PHP :8 +
-  </li>
+   <li>
+    Node version : 16.14.0
+   </li>
+    <li>
+     PHP :8(+)
+    </li>
 </ul>
+
+<h4>installation</h4>
 
 
 ````
@@ -60,14 +58,9 @@ composer install
 cp .env.example .env
 ````
 
-
-
 <p>
 Open your .env file and change the database name (DB_DATABASE) to whatever you have, username (DB_USERNAME) and password (DB_PASSWORD) field correspond to your configuration.
-</p></i></small></h6>
-
-
-
+</p>
 
 ````
 php artisan key:generate
@@ -96,7 +89,6 @@ php artisan queue:work
 you will get all default Data 
 email:admin@gmail
 pass:12345678
-N.B : If you find any issues or need any correctiong please inform me for this solution.
 
 <h4>Short demo screen short :- <small><i> Will come after completed</i></small> <h4>
 ![1](https://user-images.githubusercontent.com/52754507/203615710-ed26009c-97af-4135-864c-e01ae510c99b.png)
