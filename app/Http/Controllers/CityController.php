@@ -54,7 +54,7 @@ class CityController extends Controller
      * @param CityRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(CityRequest $request)
+    public function store(CityRequest $request): \Illuminate\Http\JsonResponse
     {
         $data = $request->all();
         $data =  $this->cityRepo->store($data);

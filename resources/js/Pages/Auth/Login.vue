@@ -62,6 +62,10 @@ const submit = () => {
                     Log in
                 </PrimaryButton>
             </div>
+
+            <p class="border-b mt-3">Default Credential : </p>
+            <p>Email: admin@gmail</p>
+            <p>Pass: 12345678</p>
         </form>
     </GuestLayout>
 </template>

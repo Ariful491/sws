@@ -6,6 +6,6 @@ interface CityRepositoryInterface {
 
     public function getCity($data);
     public function store($data);
-    public function delete($data);
+
 
 }
