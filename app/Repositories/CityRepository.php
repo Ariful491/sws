@@ -12,14 +12,14 @@ class CityRepository implements CityRepositoryInterface
 
     public function getCity($data)
     {
-        $products = City::orderBy('id','desc');
+        $products = City::orderBy('id','asc');
         /*if(isset($data['status']) && !empty($data['status'])){
             $products->where('status',$data['status']);
         }
         if(isset($data['price']) && !empty($data['price'])){
             $products->whereBetween('price',[0,$data['price']]);
         }*/
-        return  $products->paginate(5);
+        return  $products->paginate(25);
     }
 
     public function store($data)
@@ -28,7 +28,6 @@ class CityRepository implements CityRepositoryInterface
         $destinationPath = 'uploads';
         $file->move($destinationPath,'city.xlsx');
         CityProcess::dispatch();
-
         $data['success']='Successfully Saved!!';
         return $data;
 

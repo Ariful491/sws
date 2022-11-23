@@ -5,6 +5,8 @@ import GuestLayout from '@/Layouts/GuestLayout.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
+import Pagination from "@/Components/Pagination.vue";
+import CustomModal from "@/Components/CustomModal.vue";
 import TextInput from '@/Components/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
 import { ref } from 'vue'
@@ -13,6 +15,7 @@ let  btnName = ref('Upload')
 let  processing = ref(false)
 let  success = ref('')
 let  errorData = ref('')
+let modalItem =  ref('');
 
 defineProps({
     items: Object,
@@ -43,7 +46,9 @@ const submit = () => {
             //console.log(error.response.data.errors.excel_file);
         });
 };
-
+function changeModalItems(data){
+    modalItem.value = data;
+}
 
 </script>
 
@@ -100,81 +105,53 @@ const submit = () => {
                                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
                                     <th scope="col" class="py-3 px-6">
-                                        Product name
+                                        #
                                     </th>
                                     <th scope="col" class="py-3 px-6">
-                                        Color
+                                        City
                                     </th>
                                     <th scope="col" class="py-3 px-6">
-                                        Category
+                                        State Name
                                     </th>
                                     <th scope="col" class="py-3 px-6">
-                                        Price
+                                        County Name
                                     </th>
-                                    <th scope="col" class="py-3 px-6">
-                                        <span class="sr-only">Edit</span>
+                                    <th scope="col" class="py-3 px-6 text-center">
+                                        <span > Action </span>
                                     </th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <tr v-for="item in items.data" :key="item.id" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                     <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Apple MacBook Pro 17"
+                                         {{item.id}}
                                     </th>
                                     <td class="py-4 px-6">
-                                        Sliver
+                                        {{ item.city }}
                                     </td>
                                     <td class="py-4 px-6">
-                                        Laptop
+                                        {{item.state_name}}
                                     </td>
                                     <td class="py-4 px-6">
-                                        $2999
+                                        {{item.county_name}}
                                     </td>
-                                    <td class="py-4 px-6 text-right">
-                                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                    <td class="py-4 px-6 text-center">
+                                         <button @click="changeModalItems(item)" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</button>
                                     </td>
                                 </tr>
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Microsoft Surface Pro
-                                    </th>
-                                    <td class="py-4 px-6">
-                                        White
-                                    </td>
-                                    <td class="py-4 px-6">
-                                        Laptop PC
-                                    </td>
-                                    <td class="py-4 px-6">
-                                        $1999
-                                    </td>
-                                    <td class="py-4 px-6 text-right">
-                                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                    </td>
-                                </tr>
-                                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Magic Mouse 2
-                                    </th>
-                                    <td class="py-4 px-6">
-                                        Black
-                                    </td>
-                                    <td class="py-4 px-6">
-                                        Accessories
-                                    </td>
-                                    <td class="py-4 px-6">
-                                        $99
-                                    </td>
-                                    <td class="py-4 px-6 text-right">
-                                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                    </td>
-                                </tr>
+
                                 </tbody>
                             </table>
                         </div>
-
                     </div>
+                    <Pagination :data="items" />
                 </div>
             </div>
         </div>
+
+
+<!-- Modal          -->
+
+        <CustomModal :item="modalItem"   />
     </AuthenticatedLayout>
 </template>

@@ -23,6 +23,7 @@ class CityImport implements ToModel,WithStartRow
     */
     public function model(array $row)
     {
+
         return new City([
                  'city'              => $row[0],
                  'city_ascii'        => $row[1],
