@@ -60,9 +60,14 @@ composer install
 cp .env.example .env
 ````
 
+
+
 <p>
 Open your .env file and change the database name (DB_DATABASE) to whatever you have, username (DB_USERNAME) and password (DB_PASSWORD) field correspond to your configuration.
-</p>
+</p></i></small></h6>
+
+
+
 
 ````
 php artisan key:generate
