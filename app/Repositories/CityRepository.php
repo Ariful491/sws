@@ -1,7 +1,10 @@
 <?php
 namespace App\Repositories;
+use App\Imports\CityImport;
+use App\Jobs\CityProcess;
 use App\Models\City;
 use App\Repositories\Interfaces\CityRepositoryInterface;
+use Maatwebsite\Excel\Facades\Excel;
 
 
 class CityRepository implements CityRepositoryInterface
@@ -23,7 +26,9 @@ class CityRepository implements CityRepositoryInterface
     {
         $file = $data['excel_file'];
         $destinationPath = 'uploads';
-        $file->move($destinationPath,$file->getClientOriginalName());
+        $file->move($destinationPath,'city.xlsx');
+        CityProcess::dispatch();
+
         $data['success']='Successfully Saved!!';
         return $data;
 

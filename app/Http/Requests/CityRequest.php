@@ -24,7 +24,7 @@ class CityRequest extends FormRequest
     public function rules()
     {
         return [
-            'excel_file' => ['required'],
+            'excel_file' => ['required','mimes:xlsx'],
         ];
     }
 }

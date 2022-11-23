@@ -15,22 +15,22 @@ return new class extends Migration
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
-            $table->string('city',50);
-            $table->string('city_ascii',50);
-            $table->string('state_id','5');
-            $table->string('state_name',50);
-            $table->integer('county_fips');
-            $table->string('county_name',50);
-            $table->decimal('lat',4);
-            $table->decimal('lng',4);
-            $table->bigInteger('population');
-            $table->bigInteger('density');
-            $table->enum('source',['polygon']);
-            $table->enum('military',['FALSE','TRUE']);
-            $table->enum('incorporated',['FALSE','TRUE']);
-            $table->string('timezone',300);
-            $table->integer('ranking');
-            $table->string('zips',60)->nullable();
+            $table->string('city',50)->nullable();
+            $table->string('city_ascii',50)->nullable();
+            $table->string('state_id')->nullable();
+            $table->string('state_name',50)->nullable();
+            $table->string('county_fips')->nullable();
+            $table->string('county_name',50)->nullable();
+            $table->string('lat')->nullable();
+            $table->string('lng')->nullable();
+            $table->string('population')->nullable();
+            $table->string('density')->nullable();
+            $table->string('source')->nullable();
+            $table->string('military')->nullable();
+            $table->string('incorporated')->nullable();
+            $table->string('timezone',300)->nullable();
+            $table->string('ranking')->nullable();
+            $table->string('zips',600)->nullable();
             $table->timestamps();
         });
     }

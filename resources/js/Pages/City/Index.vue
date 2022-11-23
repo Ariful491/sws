@@ -38,7 +38,7 @@ const submit = () => {
         })
         .catch(function (error) {
             processing.value = false;
-            btnName.value = 'Fail';
+            btnName.value = 'Upload Again';
             errorData.value = error.response.data.errors.excel_file[0];
             //console.log(error.response.data.errors.excel_file);
         });
@@ -58,7 +58,7 @@ const submit = () => {
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white p-2  overflow-hidden shadow-sm sm:rounded-lg">
-                    <div v-if="success"  class="bg-green-100 flex w-1/2 mx-auto my-5  transition-all justify-between px-3 py-3 shadow-md" role="alert">
+                    <div v-if="success"  class="bg-green-100 rounded flex w-1/2 mx-auto my-5  transition-all justify-between px-3 py-3 shadow-md" role="alert">
                         <div class="h-6 transition-all text-gray-700 font-bold">
                             {{success}}
                         </div>
@@ -68,7 +68,7 @@ const submit = () => {
                             </svg>
                         </div>
                     </div>
-                    <div v-if="errorData"  class="bg-red-100 flex w-1/2 mx-auto my-5  transition-all justify-between px-3 py-3 shadow-md" role="alert">
+                    <div v-if="errorData"  class="bg-red-100 rounded flex w-1/2 mx-auto my-5  transition-all justify-between px-3 py-3 shadow-md" role="alert">
                         <div class="h-6 transition-all text-gray-700 font-bold">
                             {{errorData}}
                         </div>

@@ -37,8 +37,7 @@ class CityController extends Controller
     {
         $data = $request->all();
         $data =  $this->cityRepo->getCity($data);
-        return Inertia::render('City/Index')
-            ->with('items',$data);;
+        return Inertia::render('City/Index')->with('items',$data);
     }
 
     /**
@@ -52,7 +51,7 @@ class CityController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param CityRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function store(CityRequest $request)
